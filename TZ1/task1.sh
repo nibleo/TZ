@@ -1,5 +1,7 @@
 #!/bin/bash
 func(){
+#  если встречаем файл -> обрабатываем
+#  если не файл -> проваливаемся внутрь и перебираем внутренние файлы
 if [[ -f $1 ]]; then
 find $input -name $1 -print0 | while IFS= read -r -d '' path
 do   
@@ -28,8 +30,8 @@ cd ../
 fi
 }
 
-input=~/Desktop/inpt
-output=~/Desktop/output
+input=$1
+output=$2
 cd $input
 cntr=0
 for file in *;do
